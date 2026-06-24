@@ -19,4 +19,4 @@
 - name: Systempakete aktualisieren (optional)
   ansible.builtin.apt:
     upgrade: dist
-  when: common_apt_upgrade | bool
+  when: common_apt_upgrade | default(false) | bool

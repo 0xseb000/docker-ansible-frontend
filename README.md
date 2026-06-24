@@ -51,9 +51,9 @@ ansible-project/
 ├── ansible.cfg
 ├── requirements.yml
 ├── inventory/
-│   └── hosts.yml
-├── group_vars/
-│   └── webservers.yml
+│   ├── hosts.yml
+│   └── group_vars/
+│       └── webservers.yml
 ├── playbooks/
 │   └── site.yml
 └── roles/
@@ -83,7 +83,7 @@ ansible-project/
 | `ansible.cfg`               | Enthält die Grundeinstellungen für Ansible, zum Beispiel den Pfad zum Inventory. |
 | `requirements.yml`          | Externe Ansible-Collections (hier `community.docker`) für den Control-Node.      |
 | `inventory/hosts.yml`       | Enthält die Zielsysteme `target01` und `target02`.                               |
-| `group_vars/webservers.yml` | Enthält Variablen, die für beide Webserver gelten.                               |
+| `inventory/group_vars/webservers.yml` | Enthält Variablen, die für beide Webserver gelten.                               |
 | `playbooks/site.yml`        | Haupt-Playbook, das alle Rollen ausführt.                                        |
 | `roles/common/`             | Allgemeine Vorbereitung der Zielsysteme, zum Beispiel Paketupdates.              |
 | `roles/docker/`             | Installiert Docker und Docker Compose auf den Targets.                           |
@@ -123,7 +123,7 @@ Auf beiden Targets wird folgendes umgesetzt:
 * Dedizierter Login-User (Standard: `ansible`) mit `sudo`-Rechten (idealerweise NOPASSWD).
 * Python 3 ist vorhanden (für die Ansible-Module).
 
-> Login-User ist zentral in `group_vars/webservers.yml` (`ansible_user`) einstellbar.
+> Login-User ist zentral in `inventory/group_vars/webservers.yml` (`ansible_user`) einstellbar.
 > Ohne NOPASSWD-`sudo` das Playbook mit `--ask-become-pass` starten.
 
 ### Bereitstellung & Test-Workflow
