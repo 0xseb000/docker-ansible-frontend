@@ -144,7 +144,10 @@ ansible-playbook playbooks/site.yml --limit target01
 # 4. Ergebnis prüfen
 curl http://10.10.10.106
 
-# 5. Nach erfolgreichem Test: target02 ausrollen
+# 5. Im Browser Webseite öffnen von eigenem Rechner
+ssh -L 8106:10.10.10.106:80 -L 8107:10.10.10.107:80 ss@100.66.18.54
+
+# 6. Nach erfolgreichem Test: target02 ausrollen
 ansible-playbook playbooks/site.yml --limit target02
 #    (oder ganz ohne --limit für beide Hosts gleichzeitig)
 ```
