@@ -1,0 +1,8 @@
+---
+- name: Docker-Frontend auf den Webservern bereitstellen
+  hosts: webservers
+  become: true
+  roles:
+    - common
+    - docker
+    - webapp

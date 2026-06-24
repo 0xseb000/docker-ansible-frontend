@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ webapp_site_title }}</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 4rem auto; max-width: 40rem; color: #1a1a1a; }
+      h1 { color: #0b6; }
+      code { background: #f0f0f0; padding: .1rem .3rem; border-radius: .2rem; }
+      .meta { color: #555; }
+    </style>
+  </head>
+  <body>
+    <h1>{{ webapp_site_title }}</h1>
+    <p>Diese Seite wurde automatisiert per <strong>Ansible</strong> und
+       <strong>Docker Compose</strong> bereitgestellt.</p>
+    <p class="meta">Host: <code>{{ inventory_hostname }}</code>
+       &middot; IP: <code>{{ ansible_host }}</code></p>
+  </body>
+</html>

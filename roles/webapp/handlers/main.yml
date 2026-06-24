@@ -1,0 +1,5 @@
+---
+- name: Webapp-Container neu starten
+  community.docker.docker_compose_v2:
+    project_src: "{{ webapp_dir }}"
+    state: restarted

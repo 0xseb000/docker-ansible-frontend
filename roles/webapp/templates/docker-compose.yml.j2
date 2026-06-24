@@ -1,0 +1,11 @@
+# Verwaltet von Ansible - manuelle Aenderungen werden ueberschrieben.
+services:
+  web:
+    image: "{{ webapp_image }}"
+    container_name: webapp
+    restart: unless-stopped
+    ports:
+      - "{{ webapp_http_port }}:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro

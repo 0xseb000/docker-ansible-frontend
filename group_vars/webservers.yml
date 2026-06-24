@@ -1,0 +1,17 @@
+---
+# Variablen fuer alle Webserver (target01 + target02).
+
+# --- Verbindung -------------------------------------------------------------
+# Dedizierter Login-User auf den Targets (Authentifizierung per SSH-Key,
+# Rechteausweitung per sudo/become). Hier zentral anpassbar.
+ansible_user: ansible
+# ansible_ssh_private_key_file: ~/.ssh/id_ed25519   # bei Bedarf expliziten Key setzen
+
+# --- common-Rolle -----------------------------------------------------------
+common_apt_upgrade: false      # true => Systempakete per "apt dist-upgrade" aktualisieren
+
+# --- webapp-Rolle -----------------------------------------------------------
+webapp_dir:        /opt/webapp        # Projektverzeichnis auf dem Target
+webapp_image:      nginx:stable       # Container-Image fuer das Frontend
+webapp_http_port:  80                 # Host-Port -> Container-Port 80
+webapp_site_title: "Docker + Ansible Frontend"
